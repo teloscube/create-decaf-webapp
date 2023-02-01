@@ -20,7 +20,7 @@
   "bin": {
     "create-decaf-app": "./index.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^4",
     "cross-spawn": "^7.0.3",
     "replace-in-file": "^6.3.5",
