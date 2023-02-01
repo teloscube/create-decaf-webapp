@@ -1,0 +1,15 @@
+## ```sh
+## caddy run
+## ```
+
+:{$CADDY_PORT:2999}
+
+## Proxies to the development version of the DECAF Web Application.
+reverse_proxy /webapps/--projectname--/development* http://localhost:3000
+reverse_proxy /sockjs-node http://localhost:3000
+
+## @decaf proxies remaining requests to the upstream.
+reverse_proxy /* https://{$CREATE_DECAF_WEBAPP_HOST:telosinvest.decafhub.com} {
+	header_up Host {$CREATE_DECAF_WEBAPP_HOST:telosinvest.decafhub.com}
+	header_up X-DECAF-APIURL https://{$CREATE_DECAF_WEBAPP_HOST:telosinvest.decafhub.com}
+}

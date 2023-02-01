@@ -1,0 +1,42 @@
+name: Deploy Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          command: manifest
+
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Use Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: 'Build and Deploy'
+        uses: teloscube/decaf-webapps-deployment-action@v0.0.9
+        if: ${{ steps.release.outputs.release_created }}
+        id: build
+        with:
+          app_name: --projectname--
+          production: true
+          staging: true
+          version: v${{ steps.release.outputs.tag_name }}
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
