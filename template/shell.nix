@@ -6,7 +6,7 @@ stdenv.mkDerivation {
   buildInputs = with pkgs; [
     caddy
     haskellPackages.dotenv
-    nodejs
+    nodejs-16_x
     tmux
     yarn
   ];
