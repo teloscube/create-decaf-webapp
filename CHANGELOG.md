@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/teloscube/create-decaf-webapp/compare/0.0.1...0.0.2) (2023-02-01)
+
+
+### Bug Fixes
+
+* do not use yarn and yarn cache while publishing ([7503be0](https://github.com/teloscube/create-decaf-webapp/commit/7503be023e32e965ba16f220fb9e820439a40694))
+
 ## 0.0.1 (2023-02-01)
 
 
