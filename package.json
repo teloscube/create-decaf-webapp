@@ -1,0 +1,37 @@
+{
+  "name": "create-decaf-webapp",
+  "version": "0.0.0",
+  "author": "teloscube",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "decaf"
+  ],
+  "description": "Create a new DECAF Webapp",
+  "engines": {
+    "node": ">=14"
+  },
+  "bugs": {
+    "url": "https://github.com/teloscube/create-decaf-webapp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teloscube/create-decaf-webapp.git"
+  },
+  "bin": {
+    "create-decaf-app": "./index.js"
+  },
+  "devDependencies": {
+    "chalk": "^4",
+    "cross-spawn": "^7.0.3",
+    "replace-in-file": "^6.3.5",
+    "validate-npm-package-name": "^5.0.0"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120
+  }
+}
