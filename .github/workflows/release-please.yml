@@ -23,16 +23,6 @@ jobs:
           cache: 'yarn'
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        if: ${{ steps.release.outputs.release_created }}
-        env:
-          HUSKY: 0
-
-      - name: Build the project
-        run: yarn build
-        if: ${{ steps.release.outputs.release_created }}
-
       - run: yarn publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.DECAFHUB_NPM_TOKEN}}
