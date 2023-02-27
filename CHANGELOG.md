@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.3](https://github.com/teloscube/create-decaf-webapp/compare/0.0.2...0.0.3) (2023-02-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade template dependencies
+
+### Miscellaneous Chores
+
+* **deps:** upgrade template dependencies ([c038735](https://github.com/teloscube/create-decaf-webapp/commit/c038735f007809d206c599c9ca96e8a2b810fc32))
+* release 0.0.3 ([1cd3f80](https://github.com/teloscube/create-decaf-webapp/commit/1cd3f800126be6b470d92593b3ed936f13380096))
+
 ## [0.0.2](https://github.com/teloscube/create-decaf-webapp/compare/0.0.1...0.0.2) (2023-02-01)
 
 
