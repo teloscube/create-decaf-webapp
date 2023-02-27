@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Usage: npx create-decaf-app my-app
+// Usage: npx create-decaf-webapp my-app
 
 const chalk = require('chalk');
 const spawn = require('cross-spawn');
