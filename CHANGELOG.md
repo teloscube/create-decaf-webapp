@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/teloscube/create-decaf-webapp/compare/0.0.3...0.0.4) (2023-02-28)
+
+
+### Bug Fixes
+
+* move testing packages to dev dependencies section ([8eb4f08](https://github.com/teloscube/create-decaf-webapp/commit/8eb4f088a7ab69f781da633becaca35679e316f9))
+
 ## [0.0.3](https://github.com/teloscube/create-decaf-webapp/compare/0.0.2...0.0.3) (2023-02-27)
 
 
