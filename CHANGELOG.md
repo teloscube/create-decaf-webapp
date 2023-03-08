@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/teloscube/create-decaf-webapp/compare/0.0.5...0.0.6) (2023-03-08)
+
+
+### Bug Fixes
+
+* **deps:** downgrade chalk to 4 ([6b9c580](https://github.com/teloscube/create-decaf-webapp/commit/6b9c5808ecd468db30a1a20792be04c0cd3c2c73))
+
 ## [0.0.5](https://github.com/teloscube/create-decaf-webapp/compare/0.0.4...0.0.5) (2023-03-08)
 
 
