@@ -21,7 +21,7 @@
     "create-decaf-app": "./index.js"
   },
   "dependencies": {
-    "chalk": "^4",
+    "chalk": "^5",
     "cross-spawn": "^7.0.3",
     "replace-in-file": "^6.3.5",
     "validate-npm-package-name": "^5.0.0"
