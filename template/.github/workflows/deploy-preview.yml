@@ -6,11 +6,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
 
       - name: "Build and Deploy"
         id: build
-        uses: teloscube/decaf-webapps-deployment-action@v0.0.9
+        uses: teloscube/decaf-webapps-deployment-action@v0.0.10
         with:
           app_name: --projectname--
           preview: true
