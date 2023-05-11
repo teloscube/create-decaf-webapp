@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/teloscube/create-decaf-webapp/compare/0.2.1...0.2.2) (2023-05-11)
+
+
+### Features
+
+* get app display name as an optional second parameter ([2b682bc](https://github.com/teloscube/create-decaf-webapp/commit/2b682bc6f2b35dc11b31aacc665275380b48ca98))
+
 ## [0.2.1](https://github.com/teloscube/create-decaf-webapp/compare/0.2.0...0.2.1) (2023-05-11)
 
 
