@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/teloscube/create-decaf-webapp/compare/0.2.0...0.2.1) (2023-05-11)
+
+
+### Bug Fixes
+
+* override typescript for react-scripts ([7ba009d](https://github.com/teloscube/create-decaf-webapp/commit/7ba009d0fe5517d219df51b4e33a515e5073967e))
+
 ## [0.2.0](https://github.com/teloscube/create-decaf-webapp/compare/0.1.0...0.2.0) (2023-05-11)
 
 
