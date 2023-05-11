@@ -10,15 +10,16 @@ const replace = require('replace-in-file');
 const validate = require('validate-npm-package-name');
 
 const currentNodeVersion = process.versions.node;
+const SUPPORTED_NODE_VERSION = 16;
 const semver = currentNodeVersion.split('.');
 const major = semver[0];
 
-if (major < 14) {
+if (major < SUPPORTED_NODE_VERSION) {
   console.error(
     'You are running Node ' +
       currentNodeVersion +
       '.\n' +
-      'Create DECAF Webapp requires Node 14 or higher. \n' +
+      `Create DECAF Webapp requires Node ${SUPPORTED_NODE_VERSION} or higher. \n` +
       'Please update your version of Node.'
   );
   process.exit(1);
