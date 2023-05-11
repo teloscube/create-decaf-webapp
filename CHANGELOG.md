@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/teloscube/create-decaf-webapp/compare/0.2.2...0.2.3) (2023-05-11)
+
+
+### Bug Fixes
+
+* project name is not being updated in some action files ([bd2caf2](https://github.com/teloscube/create-decaf-webapp/commit/bd2caf2d7b33a36c4d589eba43de9b03e4b77397))
+
 ## [0.2.2](https://github.com/teloscube/create-decaf-webapp/compare/0.2.1...0.2.2) (2023-05-11)
 
 
