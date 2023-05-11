@@ -1,4 +1,4 @@
-with import (fetchTarball https://github.com/NixOS/nixpkgs/archive/22.11.tar.gz) { };
+with import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/22.11.tar.gz") { };
 
 stdenv.mkDerivation {
   name = "--projectname--";
@@ -6,7 +6,7 @@ stdenv.mkDerivation {
   buildInputs = with pkgs; [
     caddy
     haskellPackages.dotenv
-    nodejs-16_x
+    nodejs-18_x
     tmux
     yarn
   ];
