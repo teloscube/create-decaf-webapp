@@ -1,23 +1,27 @@
-import { HomeOutlined } from "@ant-design/icons";
-import { DecafWebapp } from "@decafhub/decaf-react-webapp";
-import { Alert } from "antd";
-import pkg from "../package.json";
-import Home from "./pages/Home";
+import { HomeOutlined } from '@ant-design/icons';
+import { DecafMenuItemsBuilder, DecafRouteItemsBuilder, DecafWebapp } from '@decafhub/decaf-react-webapp';
+import { Alert } from 'antd';
+import pkg from '../package.json';
+import Home from './pages/Home';
 
-const menu = [
-  {
-    label: "Home",
-    to: "/",
-    icon: <HomeOutlined />,
-  },
-];
+const buildMenu: DecafMenuItemsBuilder = (context) => {
+  return [
+    {
+      label: 'Home',
+      to: '/',
+      icon: <HomeOutlined />,
+    },
+  ];
+};
 
-const routes = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-];
+const buildRoutes: DecafRouteItemsBuilder = (context) => {
+  return [
+    {
+      path: '/',
+      element: <Home />,
+    },
+  ];
+};
 
 function App() {
   return (
@@ -25,13 +29,11 @@ function App() {
       <DecafWebapp
         config={{
           currentVersion: pkg.version,
-          versionCheckInterval: 60,
-          authCheckInterval: 60,
           basePath: process.env.PUBLIC_URL,
         }}
         appName="--appname--"
-        menuItems={menu}
-        routes={routes}
+        buildMenuItems={buildMenu}
+        buildRouteItems={buildRoutes}
       />
     </Alert.ErrorBoundary>
   );
