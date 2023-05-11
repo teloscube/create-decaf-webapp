@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0](https://github.com/teloscube/create-decaf-webapp/compare/0.1.0...0.2.0) (2023-05-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* make minimum supported node version 16
+
+### Bug Fixes
+
+* check for invalid project names ([d5df88d](https://github.com/teloscube/create-decaf-webapp/commit/d5df88ddde84e9bb765549ae27693a0253afdef9))
+
+
+### Miscellaneous Chores
+
+* make minimum supported node version 16 ([f5de11b](https://github.com/teloscube/create-decaf-webapp/commit/f5de11b33120d8fd9cacfc1663f2b7dbf0e7f903))
+
 ## [0.1.0](https://github.com/teloscube/create-decaf-webapp/compare/0.0.7...0.1.0) (2023-05-11)
 
 
