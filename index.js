@@ -26,9 +26,8 @@ if (major < 14) {
 
 const isNixInstalled = spawn.sync('which', ['nix-shell']).status === 0;
 const isCaddyInstalled = spawn.sync('which', ['caddy']).status === 0;
-const isYarnInstalled = spawn.sync('which', ['yarn']).status === 0;
 
-const packager = isYarnInstalled ? 'yarn' : 'npm';
+const packager = 'npm';
 
 function humanize(str) {
   return str
