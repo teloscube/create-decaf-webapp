@@ -52,6 +52,17 @@ const FILES_TO_MODIFY = [
 
 const projectName = process.argv[2];
 
+switch (projectName) {
+  case '-v':
+  case '--version':
+    console.log('v' + require('./package.json').version);
+    process.exit(0);
+  case '-h':
+  case '--help':
+    console.log('Usage: npx create-decaf-webapp my-app');
+    process.exit(0);
+}
+
 if (!projectName) {
   console.error('Please specify the project name!');
   console.log('npx create-decaf-app my-app');
@@ -60,7 +71,15 @@ if (!projectName) {
   console.error(`Directory ${chalk.bold(projectName)} already exists!`);
   process.exit(1);
 } else if (validate(projectName).errors) {
+  console.error(
+    chalk.red(
+      `Invalid project name: ${chalk.bold(chalk.white(projectName))}\n${validate(projectName).errors.join('\n')}`
+    )
+  );
+  process.exit(1);
+} else if (projectName.startsWith('-')) {
   console.error(chalk.red(`Invalid project name: ${chalk.bold(chalk.white(projectName))}`));
+  console.error(chalk.red(`Project name cannot start with a -`));
   process.exit(1);
 }
 
