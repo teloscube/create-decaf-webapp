@@ -51,7 +51,19 @@ const FILES_TO_MODIFY = [
   'shell.nix',
 ];
 
-const projectName = process.argv[2];
+function printUsage() {
+  console.log('Usage: create-decaf-webapp my-app "App Name"');
+  console.log('       create-decaf-webapp --version');
+  console.log('       create-decaf-webapp --help');
+  console.log(chalk.dim('> App name is optional. If not provided, it will be humanized project name.'));
+}
+
+const runWithNpx = process.argv[0].endsWith('npx') || process.argv[0].endsWith('node');
+
+const PROJECT_NAME_INDEX = runWithNpx ? 2 : 1;
+const PROJECT_NAME_HUMAN_INDEX = runWithNpx ? 3 : 2;
+
+const projectName = process.argv[PROJECT_NAME_INDEX];
 
 switch (projectName) {
   case '-v':
@@ -60,16 +72,16 @@ switch (projectName) {
     process.exit(0);
   case '-h':
   case '--help':
-    console.log('Usage: npx create-decaf-webapp my-app');
+    printUsage();
     process.exit(0);
 }
 
 if (!projectName) {
-  console.error('Please specify the project name!');
-  console.log('npx create-decaf-app my-app');
+  console.error(chalk.yellow('Please specify the project name!'));
+  printUsage();
   process.exit(1);
 } else if (fs.existsSync(projectName)) {
-  console.error(`Directory ${chalk.bold(projectName)} already exists!`);
+  console.error(chalk.yellow(`Directory ${chalk.bold(projectName)} already exists!`));
   process.exit(1);
 } else if (validate(projectName).errors) {
   console.error(
@@ -84,9 +96,10 @@ if (!projectName) {
   process.exit(1);
 }
 
+const projectNameHuman = process.argv[PROJECT_NAME_HUMAN_INDEX]?.trim() || humanize(projectName);
+
 console.log(chalk.cyan(`Creating a new DECAF app in ${chalk.bold(projectName)}.`));
 
-const projectNameHuman = humanize(projectName);
 console.log(chalk.blue('We will be using "' + projectNameHuman + '" as the app name.'));
 
 console.log(chalk.blueBright('Setting up the project files...'));
