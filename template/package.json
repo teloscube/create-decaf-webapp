@@ -1,15 +1,12 @@
 {
   "name": "decaf-webapp-template",
   "version": "0.0.1",
-  "homepage": ".",
   "private": true,
   "author": "--username-- <--usermail-->",
   "scripts": {
-    "start": "react-scripts start",
-    "caddy": "nix-shell -p caddy --run 'caddy run --envfile .env'",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "test": "vitest",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -22,7 +19,6 @@
     "react-dom": "^18.2.0",
     "react-number-format": "^5.1.4",
     "react-router-dom": "^6.11.1",
-    "react-scripts": "^5.0.1",
     "typescript": "^5.0.4",
     "web-vitals": "^3.3.1"
   },
@@ -32,23 +28,23 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^29.5.1",
     "@types/node": "^20.1.2",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.3.0",
+    "eslint-config-react-app": "^7.0.1",
     "husky": "^8.0.3",
+    "jsdom": "^22.0.0",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8"
-  },
-  "overrides": {
-    "react-scripts": {
-      "typescript": "^5.0.4"
-    }
+    "prettier": "^2.8.8",
+    "vite": "^4.3.7",
+    "vite-plugin-checker": "^0.6.0",
+    "vitest": "^0.31.0"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

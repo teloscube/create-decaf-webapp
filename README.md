@@ -16,7 +16,7 @@ Create [DECAF](https://docs.decafhub.com/) Web applications with zero or minimal
 ```bash
 npx create-decaf-webapp my-app
 cd my-app
-yarn start && yarn caddy
+npm start
 ```
 
 > You can also install it globally with `npm i -g create-decaf-webapp`. But to ensure you always use the latest version, it is recommended to use `npx`.

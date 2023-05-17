@@ -25,9 +25,6 @@ if (major < SUPPORTED_NODE_VERSION) {
   process.exit(1);
 }
 
-const isNixInstalled = spawn.sync('which', ['nix-shell']).status === 0;
-const isCaddyInstalled = spawn.sync('which', ['caddy']).status === 0;
-
 const packager = 'npm';
 
 function humanize(str) {
@@ -38,17 +35,17 @@ function humanize(str) {
 }
 
 const FILES_TO_MODIFY = [
-  '.env',
   '.env.example',
+  '.env',
   '.github/workflows/deploy-preview.yml',
   '.github/workflows/deploy-production.yml',
   '.github/workflows/deploy-staging.yml',
-  'Caddyfile',
+  'index.html',
   'package.json',
-  'public/index.html',
   'public/manifest.json',
-  'src/App.tsx',
+  'README.md',
   'shell.nix',
+  'src/App.tsx',
 ];
 
 function printUsage() {
@@ -56,6 +53,11 @@ function printUsage() {
   console.log('       create-decaf-webapp --version');
   console.log('       create-decaf-webapp --help');
   console.log(chalk.dim('> App name is optional. If not provided, it will be humanized project name.'));
+  console.log(
+    chalk.dim(
+      '> Do not use "decaf-webapp-" prefix in the project name. It will be added automatically to the folder name.'
+    )
+  );
 }
 
 const runWithNpx = process.argv[0].endsWith('npx') || process.argv[0].endsWith('node');
@@ -63,7 +65,11 @@ const runWithNpx = process.argv[0].endsWith('npx') || process.argv[0].endsWith('
 const PROJECT_NAME_INDEX = runWithNpx ? 2 : 1;
 const PROJECT_NAME_HUMAN_INDEX = runWithNpx ? 3 : 2;
 
-const projectName = process.argv[PROJECT_NAME_INDEX];
+const _projectName = process.argv[PROJECT_NAME_INDEX];
+const projectName = _projectName?.startsWith('decaf-webapp-')
+  ? _projectName.replace('decaf-webapp-', '')
+  : _projectName;
+const folderName = `decaf-webapp-${projectName}`;
 
 switch (projectName) {
   case '-v':
@@ -80,8 +86,8 @@ if (!projectName) {
   console.error(chalk.yellow('Please specify the project name!'));
   printUsage();
   process.exit(1);
-} else if (fs.existsSync(projectName)) {
-  console.error(chalk.yellow(`Directory ${chalk.bold(projectName)} already exists!`));
+} else if (fs.existsSync(folderName)) {
+  console.error(chalk.yellow(`Directory ${chalk.bold(folderName)} already exists!`));
   process.exit(1);
 } else if (validate(projectName).errors) {
   console.error(
@@ -96,9 +102,11 @@ if (!projectName) {
   process.exit(1);
 }
 
+const _timer = Date.now();
+
 const projectNameHuman = process.argv[PROJECT_NAME_HUMAN_INDEX]?.trim() || humanize(projectName);
 
-console.log(chalk.cyan(`Creating a new DECAF app in ${chalk.bold(projectName)}.`));
+console.log(chalk.cyan(`Creating a new DECAF app in ${chalk.bold(folderName)}.`));
 
 console.log(chalk.blue('We will be using "' + projectNameHuman + '" as the app name.'));
 
@@ -108,7 +116,7 @@ const username = spawn.sync('git', ['config', 'user.name'], { encoding: 'utf8' }
 const usermail = spawn.sync('git', ['config', 'user.email'], { encoding: 'utf8' }).stdout.trim();
 
 const currentDir = process.cwd();
-const projectDir = path.resolve(currentDir, projectName);
+const projectDir = path.resolve(currentDir, folderName);
 fs.mkdirSync(projectDir, { recursive: true });
 
 const templateDir = path.resolve(__dirname, 'template');
@@ -117,8 +125,9 @@ fs.cpSync(templateDir, projectDir, { recursive: true });
 fs.renameSync(path.join(projectDir, 'gitignore'), path.join(projectDir, '.gitignore'));
 
 fs.renameSync(path.join(projectDir, 'env'), path.join(projectDir, '.env'));
+fs.cpSync(path.join(projectDir, '.env'), path.join(projectDir, '.env.example'));
 
-const mFiles = FILES_TO_MODIFY.map((f) => path.resolve(currentDir, projectName, f));
+const mFiles = FILES_TO_MODIFY.map((f) => path.resolve(currentDir, folderName, f));
 
 replace.sync({
   files: mFiles,
@@ -127,13 +136,7 @@ replace.sync({
 });
 
 const projectPackageJson = require(path.join(projectDir, 'package.json'));
-
-projectPackageJson.name = projectName;
-
-const scripts = projectPackageJson.scripts;
-scripts.caddy = isNixInstalled ? 'nix-shell --run "caddy run --envfile .env"' : 'caddy run --envfile .env';
-projectPackageJson.scripts = scripts;
-
+projectPackageJson.name = folderName;
 fs.writeFileSync(path.join(projectDir, 'package.json'), JSON.stringify(projectPackageJson, null, 2));
 
 spawn.sync('git', ['init'], { cwd: projectDir, stdio: 'inherit' });
@@ -141,17 +144,12 @@ spawn.sync('git', ['init'], { cwd: projectDir, stdio: 'inherit' });
 console.log(chalk.blueBright('Installing dependencies. This might take a while.'));
 spawn.sync(packager, ['install'], { cwd: projectDir, stdio: 'inherit' });
 
-console.log(chalk.greenBright('☕ Success!'));
-console.log(chalk.greenBright('Your new DECAF app is ready.'));
-console.log(chalk.greenBright(`Created ${chalk.bold(projectName)} at ${projectDir}`));
 console.log();
-console.log(chalk.greenBright('cd ' + projectName));
-console.log(chalk.greenBright(`${packager} start && ${packager} run caddy`));
-
-if (!isNixInstalled && !isCaddyInstalled) {
-  console.log('⚠️ ' + chalk.yellow('Warning!'));
-  console.log(chalk.yellow('We could not find Nix or Caddy on your system.'));
-  console.log(chalk.yellow('You will need Caddy server to run the app.'));
-  console.log(chalk.yellow('If you install Nix, we will handle the rest for you.'));
-  console.log(chalk.yellow('Or, you can install Caddy manually.'));
-}
+console.log(chalk.greenBright('Success! 🎉'));
+console.log();
+console.log(chalk.greenBright('Your new DECAF app is ready.'));
+console.log(chalk.green(`Created ${chalk.greenBright(projectNameHuman)} at ${chalk.gray(projectDir)}`));
+console.log();
+console.log(chalk.greenBright(`$ cd ${folderName} && ${packager} start`));
+console.log();
+console.log(chalk.dim(`Done in ${(Date.now() - _timer) / 1000} seconds.`));
