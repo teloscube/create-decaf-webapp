@@ -29,7 +29,7 @@ function App() {
       <DecafWebapp
         config={{
           currentVersion: pkg.version,
-          basePath: process.env.PUBLIC_URL,
+          basePath: import.meta.env.BASE_URL,
         }}
         appName="--appname--"
         buildMenuItems={buildMenu}
