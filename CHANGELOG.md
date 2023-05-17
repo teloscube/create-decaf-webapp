@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0](https://github.com/teloscube/create-decaf-webapp/compare/0.2.3...0.3.0) (2023-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to Vite
+
+### Features
+
+* migrate to Vite ([f10f3f1](https://github.com/teloscube/create-decaf-webapp/commit/f10f3f1837830695454eb58ec14e637556343316))
+
 ## [0.2.3](https://github.com/teloscube/create-decaf-webapp/compare/0.2.2...0.2.3) (2023-05-11)
 
 
