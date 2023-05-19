@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.4.0](https://github.com/teloscube/create-decaf-webapp/compare/0.3.0...0.4.0) (2023-05-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade dependencies
+
+### Bug Fixes
+
+* add missing package-lock.json ([3638052](https://github.com/teloscube/create-decaf-webapp/commit/3638052d4c07ec344a9d291c41142b6cb97daa23))
+
+
+### Miscellaneous Chores
+
+* upgrade dependencies ([29000bb](https://github.com/teloscube/create-decaf-webapp/commit/29000bb0a1c47d0f58049d3cfd765df9a109cec2))
+
 ## [0.3.0](https://github.com/teloscube/create-decaf-webapp/compare/0.2.3...0.3.0) (2023-05-17)
 
 
