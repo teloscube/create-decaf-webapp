@@ -12,7 +12,7 @@ const validate = require('validate-npm-package-name');
 const currentNodeVersion = process.versions.node;
 const SUPPORTED_NODE_VERSION = 16;
 const semver = currentNodeVersion.split('.');
-const major = semver[0];
+const major = parseInt(semver[0], 10);
 
 if (major < SUPPORTED_NODE_VERSION) {
   console.error(
@@ -70,6 +70,8 @@ const projectName = _projectName?.startsWith('decaf-webapp-')
   ? _projectName.replace('decaf-webapp-', '')
   : _projectName;
 const folderName = `decaf-webapp-${projectName}`;
+
+let template = 'typescript';
 
 switch (projectName) {
   case '-v':
