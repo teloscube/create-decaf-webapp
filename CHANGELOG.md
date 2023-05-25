@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.1](https://github.com/teloscube/create-decaf-webapp/compare/0.4.0...0.4.1) (2023-05-25)
+
+
+### Features
+
+* use commander for cli parsing and interface ([ea6b24b](https://github.com/teloscube/create-decaf-webapp/commit/ea6b24bd75795ac2f63df29b31fb316f87cfcd4b))
+
+
+### Bug Fixes
+
+* current node version's major is used as string ([5c209fd](https://github.com/teloscube/create-decaf-webapp/commit/5c209fd491588d2d3fd4a0514b504bfcb12e8447))
+
 ## [0.4.0](https://github.com/teloscube/create-decaf-webapp/compare/0.3.0...0.4.0) (2023-05-19)
 
 
