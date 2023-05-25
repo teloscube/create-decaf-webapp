@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "chalk": "^4",
+    "commander": "^10.0.1",
     "cross-spawn": "^7.0.3",
     "replace-in-file": "^6.3.5",
     "validate-npm-package-name": "^5.0.0"

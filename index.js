@@ -8,6 +8,15 @@ const fs = require('fs');
 const path = require('path');
 const replace = require('replace-in-file');
 const validate = require('validate-npm-package-name');
+const { Command } = require('commander');
+const { version } = require('./package.json');
+
+function humanize(str) {
+  return str
+    .replace(/-/g, ' ')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/\b\w/g, (l) => l.toUpperCase());
+}
 
 const currentNodeVersion = process.versions.node;
 const SUPPORTED_NODE_VERSION = 16;
@@ -25,14 +34,33 @@ if (major < SUPPORTED_NODE_VERSION) {
   process.exit(1);
 }
 
-const packager = 'npm';
+const program = new Command();
 
-function humanize(str) {
-  return str
-    .replace(/-/g, ' ')
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/\b\w/g, (l) => l.toUpperCase());
-}
+program.option('-a, --app-name <app-name>', 'specify app name (default: derived from project code name)');
+program.option('-t, --template <template>', 'specify template', 'typescript');
+program.addHelpText('afterAll', '\nExample:\n  $ create-decaf-webapp app -a "My App"\n');
+program
+  .name('create-decaf-webapp')
+  .arguments('<project-name>')
+  .description('Create a new DECAF Webapp project.')
+  .version(`v${version}`, '-v, --version');
+
+program.allowExcessArguments(false);
+program.allowUnknownOption(false);
+program.showHelpAfterError(true);
+program.showSuggestionAfterError(true);
+
+program.parse(process.argv);
+
+const options = program.opts();
+
+const _projectName = program.args[0];
+const projectName = _projectName?.startsWith('decaf-webapp-')
+  ? _projectName.replace('decaf-webapp-', '')
+  : _projectName;
+const projectNameHuman = options['appName']?.trim() || humanize(projectName);
+const folderName = `decaf-webapp-${projectName}`;
+const packager = 'npm';
 
 const FILES_TO_MODIFY = [
   '.env.example',
@@ -48,47 +76,7 @@ const FILES_TO_MODIFY = [
   'src/App.tsx',
 ];
 
-function printUsage() {
-  console.log('Usage: create-decaf-webapp my-app "App Name"');
-  console.log('       create-decaf-webapp --version');
-  console.log('       create-decaf-webapp --help');
-  console.log(chalk.dim('> App name is optional. If not provided, it will be humanized project name.'));
-  console.log(
-    chalk.dim(
-      '> Do not use "decaf-webapp-" prefix in the project name. It will be added automatically to the folder name.'
-    )
-  );
-}
-
-const runWithNpx = process.argv[0].endsWith('npx') || process.argv[0].endsWith('node');
-
-const PROJECT_NAME_INDEX = runWithNpx ? 2 : 1;
-const PROJECT_NAME_HUMAN_INDEX = runWithNpx ? 3 : 2;
-
-const _projectName = process.argv[PROJECT_NAME_INDEX];
-const projectName = _projectName?.startsWith('decaf-webapp-')
-  ? _projectName.replace('decaf-webapp-', '')
-  : _projectName;
-const folderName = `decaf-webapp-${projectName}`;
-
-let template = 'typescript';
-
-switch (projectName) {
-  case '-v':
-  case '--version':
-    console.log('v' + require('./package.json').version);
-    process.exit(0);
-  case '-h':
-  case '--help':
-    printUsage();
-    process.exit(0);
-}
-
-if (!projectName) {
-  console.error(chalk.yellow('Please specify the project name!'));
-  printUsage();
-  process.exit(1);
-} else if (fs.existsSync(folderName)) {
+if (fs.existsSync(folderName)) {
   console.error(chalk.yellow(`Directory ${chalk.bold(folderName)} already exists!`));
   process.exit(1);
 } else if (validate(projectName).errors) {
@@ -105,8 +93,6 @@ if (!projectName) {
 }
 
 const _timer = Date.now();
-
-const projectNameHuman = process.argv[PROJECT_NAME_HUMAN_INDEX]?.trim() || humanize(projectName);
 
 console.log(chalk.cyan(`Creating a new DECAF app in ${chalk.bold(folderName)}.`));
 
