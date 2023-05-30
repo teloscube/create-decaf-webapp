@@ -14,11 +14,11 @@ Create [DECAF](https://docs.decafhub.com/) Web applications with zero or minimal
 ## Overview
 
 ```bash
-npx create-decaf-webapp my-app
+npx create-decaf-webapp my-app -a "My App"
 cd my-app
 npm start
 ```
 
 > You can also install it globally with `npm i -g create-decaf-webapp`. But to ensure you always use the latest version, it is recommended to use `npx`.
 
-Then open [http//localhost:2999/webapps/my-app/development/](http://localhost:2999/webapps/my-app/development/) to see your app.
+Then open [http//localhost:3000/webapps/my-app/development/](http://localhost:3000/webapps/my-app/development/) to see your app.
