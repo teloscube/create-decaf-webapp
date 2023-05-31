@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/teloscube/create-decaf-webapp/compare/0.4.1...0.4.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* generate version.json after build ([c08516b](https://github.com/teloscube/create-decaf-webapp/commit/c08516b57d8b44ddb44887e318d29f145a3025d1))
+
 ## [0.4.1](https://github.com/teloscube/create-decaf-webapp/compare/0.4.0...0.4.1) (2023-05-25)
 
 
