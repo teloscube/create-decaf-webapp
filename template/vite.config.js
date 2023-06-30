@@ -10,6 +10,18 @@ export default defineConfig(({ mode }) => {
   const DECAF_HOST = env.DECAF_WEBAPP_HOST || 'sandbox.dev.decafhub.com';
   const DECAF_URL = `https://${DECAF_HOST}`;
 
+  const proxyConfig = {
+    [`^(?!${basePath}).*`]: {
+      target: DECAF_URL,
+      prependPath: false,
+      changeOrigin: true,
+      headers: {
+        Host: DECAF_HOST,
+        'X-DECAF-APIURL': DECAF_URL,
+      },
+    },
+  };
+
   return {
     base: basePath,
     envPrefix: 'DECAF_WEBAPP',
@@ -31,17 +43,11 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       port: 3000,
-      proxy: {
-        [`^(?!${basePath}).*`]: {
-          target: DECAF_URL,
-          prependPath: false,
-          changeOrigin: true,
-          headers: {
-            Host: DECAF_HOST,
-            'X-DECAF-APIURL': DECAF_URL,
-          },
-        },
-      },
+      proxy: proxyConfig,
+    },
+    preview: {
+      port: 5000,
+      proxy: proxyConfig,
     },
     build: {
       outDir: 'build',
