@@ -18,6 +18,7 @@ jobs:
         id: release
         with:
           command: manifest
+          release-type: node
 
       - uses: actions/checkout@v3
         if: ${{ steps.release.outputs.release_created }}
@@ -29,7 +30,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - name: 'Build and Deploy'
-        uses: teloscube/decaf-webapps-deployment-action@v0.0.10
+        uses: teloscube/decaf-webapps-deployment-action@v1
         if: ${{ steps.release.outputs.release_created }}
         id: build
         with:
