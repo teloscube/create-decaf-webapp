@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.3](https://github.com/teloscube/create-decaf-webapp/compare/0.4.2...0.4.3) (2023-07-01)
+
+
+### Features
+
+* enable production mode previewing with proxy support ([3807341](https://github.com/teloscube/create-decaf-webapp/commit/380734122638127c4bc3c38e8b741ccc87965e66))
+* integrate codegen script for type generation from graphql schema ([926ba54](https://github.com/teloscube/create-decaf-webapp/commit/926ba548ec321b8233a002382c13564f4b783a08))
+
 ## [0.4.2](https://github.com/teloscube/create-decaf-webapp/compare/0.4.1...0.4.2) (2023-05-30)
 
 
