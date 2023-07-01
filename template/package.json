@@ -5,10 +5,11 @@
   "author": "--username-- <--usermail-->",
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run codegen && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
@@ -25,6 +26,9 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
+    "@graphql-codegen/cli": "4.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",

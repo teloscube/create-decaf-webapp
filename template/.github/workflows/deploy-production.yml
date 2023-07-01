@@ -41,3 +41,6 @@ jobs:
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
+        env:
+          DECAF_AUTH_HEADER: ${{ secrets.DECAF_AUTH_HEADER }}
+          DECAF_WEBAPP_HOST: sandbox.dev.decafhub.com

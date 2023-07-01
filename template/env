@@ -1,3 +1,4 @@
 BROWSER=none
 PUBLIC_URL=/webapps/--projectname--/development
 DECAF_WEBAPP_HOST=sandbox.dev.decafhub.com
+DECAF_AUTH_HEADER=
