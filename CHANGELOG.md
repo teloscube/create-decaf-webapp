@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/teloscube/create-decaf-webapp/compare/0.4.3...0.4.4) (2023-07-03)
+
+
+### Miscellaneous Chores
+
+* **release:** release 0.4.4 ([6d07818](https://github.com/teloscube/create-decaf-webapp/commit/6d078183ab29daf1f92e031cb35eb4a22c04240c))
+
 ## [0.4.3](https://github.com/teloscube/create-decaf-webapp/compare/0.4.2...0.4.3) (2023-07-01)
 
 
