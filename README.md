@@ -14,7 +14,7 @@ Create [DECAF](https://docs.decafhub.com/) Web applications with zero or minimal
 ## Overview
 
 ```bash
-npx create-decaf-webapp my-app -a "My App"
+npx create-decaf-webapp@latest my-app -a "My App"
 cd my-app
 npm start
 ```
