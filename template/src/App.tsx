@@ -4,7 +4,7 @@ import { Alert } from 'antd';
 import pkg from '../package.json';
 import Home from './pages/Home';
 
-const buildMenu: DecafMenuItemsBuilder = (context) => {
+const buildMenu: DecafMenuItemsBuilder = (_context) => {
   return [
     {
       label: 'Home',
@@ -14,7 +14,7 @@ const buildMenu: DecafMenuItemsBuilder = (context) => {
   ];
 };
 
-const buildRoutes: DecafRouteItemsBuilder = (context) => {
+const buildRoutes: DecafRouteItemsBuilder = (_context) => {
   return [
     {
       path: '/',

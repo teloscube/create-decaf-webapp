@@ -1,0 +1,56 @@
+{
+  // If you encounter any issues that you believe you shouldn't have,
+  // please check below file to see how it's configured in create-react-app
+  // https://github.com/facebook/create-react-app/blob/main/packages/eslint-config-react-app/index.js
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "warnOnUnsupportedTypeScriptVersion": true
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+  "extends": [
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "prettier/prettier": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { "functions": false, "classes": false, "variables": false, "typedefs": false }
+    ],
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+    "react/react-in-jsx-scope": "off" // suppress errors for missing 'import React' in files
+  }
+}
