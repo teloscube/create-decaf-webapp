@@ -1,8 +1,8 @@
+import Home from '@/pages/Home';
 import { HomeOutlined } from '@ant-design/icons';
 import { DecafMenuItemsBuilder, DecafRouteItemsBuilder, DecafWebapp } from '@decafhub/decaf-react-webapp';
 import { Alert } from 'antd';
 import pkg from '../package.json';
-import Home from './pages/Home';
 
 const buildMenu: DecafMenuItemsBuilder = (_context) => {
   return [
