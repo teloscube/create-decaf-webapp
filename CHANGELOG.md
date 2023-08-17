@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.6](https://github.com/teloscube/create-decaf-webapp/compare/0.4.5...0.4.6) (2023-08-17)
+
+
+### Features
+
+* enable path aliases for src folder ([3984738](https://github.com/teloscube/create-decaf-webapp/commit/3984738e6c18a79dd45b252e23030883a8151ee1))
+* new, up-to-date eslint setup ([a2ff79e](https://github.com/teloscube/create-decaf-webapp/commit/a2ff79e54313b3191c827e648909dd6ce3e571f2))
+
+
+### Bug Fixes
+
+* set initial version to 0.0.1 on release-please ([92a30de](https://github.com/teloscube/create-decaf-webapp/commit/92a30def0cdb89da97c5a026d6617670cba94c5e))
+
 ## [0.4.5](https://github.com/teloscube/create-decaf-webapp/compare/0.4.4...0.4.5) (2023-08-10)
 
 
