@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.7](https://github.com/teloscube/create-decaf-webapp/compare/0.4.6...0.4.7) (2023-09-11)
+
+
+### Features
+
+* adopt next.js conventions for script names ([303ec70](https://github.com/teloscube/create-decaf-webapp/commit/303ec70464a47acb40c4f4415c2e6e251af537c9))
+* generate husky hooks ([d078b30](https://github.com/teloscube/create-decaf-webapp/commit/d078b3045a42eecdad5d741a56f7e7331572896c))
+
 ## [0.4.6](https://github.com/teloscube/create-decaf-webapp/compare/0.4.5...0.4.6) (2023-08-17)
 
 
