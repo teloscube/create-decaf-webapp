@@ -4,10 +4,12 @@
   "private": true,
   "author": "--username-- <--usermail-->",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "npm run codegen && tsc && vite build",
-    "preview": "vite preview",
+    "start": "vite preview",
     "test": "vitest",
+    "lint": "eslint --ext .ts,.tsx src",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prepare": "husky install",
     "codegen": "graphql-codegen --config codegen.ts"
   },

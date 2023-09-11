@@ -1,0 +1,6 @@
+dist
+docs
+.husky
+build
+autogen
+node_modules
