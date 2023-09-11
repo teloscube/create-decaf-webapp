@@ -132,6 +132,12 @@ spawn.sync('git', ['init'], { cwd: projectDir, stdio: 'inherit' });
 console.log(chalk.blueBright('Installing dependencies. This might take a while.'));
 spawn.sync(packager, ['install'], { cwd: projectDir, stdio: 'inherit' });
 
+spawn.sync('npx', ['husky', 'add', '.husky/pre-commit', 'npx lint-staged'], { cwd: projectDir, stdio: 'inherit' });
+spawn.sync('npx', ['husky', 'add', '.husky/commit-msg', 'npx commitlint --edit $1'], {
+  cwd: projectDir,
+  stdio: 'inherit',
+});
+
 console.log();
 console.log(chalk.greenBright('Success! 🎉'));
 console.log();
