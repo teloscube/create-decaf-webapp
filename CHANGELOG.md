@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.8](https://github.com/teloscube/create-decaf-webapp/compare/0.4.7...0.4.8) (2023-09-11)
+
+
+### Features
+
+* add prettier-plugin-organize-imports plugin ([5968051](https://github.com/teloscube/create-decaf-webapp/commit/5968051aba84d03780981c7beb9e82881482c6dc))
+
 ## [0.4.7](https://github.com/teloscube/create-decaf-webapp/compare/0.4.6...0.4.7) (2023-09-11)
 
 
