@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.9](https://github.com/teloscube/create-decaf-webapp/compare/0.4.8...0.4.9) (2023-09-25)
+
+
+### Bug Fixes
+
+* dev commands and initial version is wrong ([1bca344](https://github.com/teloscube/create-decaf-webapp/commit/1bca344f60ad3accb89389af0caa540bc37758dc))
+
 ## [0.4.8](https://github.com/teloscube/create-decaf-webapp/compare/0.4.7...0.4.8) (2023-09-11)
 
 
