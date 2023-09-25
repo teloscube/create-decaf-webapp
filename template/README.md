@@ -13,7 +13,7 @@ Once you clone the repository,
 Now you can run the app in development mode with:
 
 ```bash
-npm start
+npm run dev
 ```
 
 Then open [http://localhost:3000/webapps/--projectname--/development/](http://localhost:3000/webapps/--projectname--/development/) to see your app.
@@ -29,7 +29,7 @@ npm run build
 To run the app in production mode, run:
 
 ```bash
-npm run preview
+npm run start
 ```
 
 Now you can open your app on the same URL with the port 5000.
