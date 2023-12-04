@@ -8,7 +8,7 @@
   ],
   "description": "Create a new DECAF Webapp",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "bugs": {
     "url": "https://github.com/teloscube/create-decaf-webapp/issues"
