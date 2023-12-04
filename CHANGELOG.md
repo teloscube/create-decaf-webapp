@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.5.0](https://github.com/teloscube/create-decaf-webapp/compare/0.4.10...0.5.0) (2023-12-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support for Node 16
+
+### Miscellaneous Chores
+
+* drop support for Node 16 ([982be75](https://github.com/teloscube/create-decaf-webapp/commit/982be750d473548c58853be748adb38341228417))
+
 ## [0.4.10](https://github.com/teloscube/create-decaf-webapp/compare/0.4.9...0.4.10) (2023-10-10)
 
 
