@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "author": "--username-- <--usermail-->",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "start": "vite preview",
