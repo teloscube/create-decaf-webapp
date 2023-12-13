@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.6.0](https://github.com/teloscube/create-decaf-webapp/compare/0.5.0...0.6.0) (2023-12-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* min. required node version to run the apps is now 20
+* set project type to module
+
+### Features
+
+* set project type to module ([f3fb1ce](https://github.com/teloscube/create-decaf-webapp/commit/f3fb1ceb2e9f72a398b381bb1f5cf39123151e47))
+
+
+### Miscellaneous Chores
+
+* min. required node version to run the apps is now 20 ([9462162](https://github.com/teloscube/create-decaf-webapp/commit/94621626630f3e6e9cc30593e6eaab94c971f538))
+
 ## [0.5.0](https://github.com/teloscube/create-decaf-webapp/compare/0.4.10...0.5.0) (2023-12-04)
 
 
