@@ -4,6 +4,9 @@
   "private": true,
   "author": "--username-- <--usermail-->",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "start": "vite preview",
