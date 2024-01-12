@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/teloscube/create-decaf-webapp/compare/0.6.0...0.6.1) (2024-01-12)
+
+
+### Miscellaneous Chores
+
+* upgrade dependencies ([7418992](https://github.com/teloscube/create-decaf-webapp/commit/7418992427581392d81d4b8f930d364d9825d348))
+
 ## [0.6.0](https://github.com/teloscube/create-decaf-webapp/compare/0.5.0...0.6.0) (2023-12-13)
 
 
