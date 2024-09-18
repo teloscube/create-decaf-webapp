@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.6.2](https://github.com/teloscube/create-decaf-webapp/compare/0.6.1...0.6.2) (2024-09-18)
+
+
+### Features
+
+* the default theme is now dark ([bd2694f](https://github.com/teloscube/create-decaf-webapp/commit/bd2694f212d7bf8f40cf13af9bf4f891987613c6))
+* upgrade to eslint 9 and add graphql-zeus integration ([0439eb7](https://github.com/teloscube/create-decaf-webapp/commit/0439eb7ed1be126b4ee16b61280a1ab92aa089ed))
+
+
+### Bug Fixes
+
+* update husky commands and start log ([4cd402d](https://github.com/teloscube/create-decaf-webapp/commit/4cd402ded6a7f7fb6fe24ccb10b77fc6aaae88fe))
+
 ## [0.6.1](https://github.com/teloscube/create-decaf-webapp/compare/0.6.0...0.6.1) (2024-01-12)
 
 
