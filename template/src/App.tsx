@@ -27,6 +27,7 @@ function App() {
   return (
     <Alert.ErrorBoundary>
       <DecafWebapp
+        theme="dark"
         config={{
           currentVersion: pkg.version,
           basePath: import.meta.env.BASE_URL,

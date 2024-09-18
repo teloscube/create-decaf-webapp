@@ -26,10 +26,10 @@ const major = parseInt(semver[0], 10);
 if (major < SUPPORTED_NODE_VERSION) {
   console.error(
     'You are running Node ' +
-      currentNodeVersion +
-      '.\n' +
-      `Create DECAF Webapp requires Node ${SUPPORTED_NODE_VERSION} or higher. \n` +
-      'Please update your version of Node.'
+    currentNodeVersion +
+    '.\n' +
+    `Create DECAF Webapp requires Node ${SUPPORTED_NODE_VERSION} or higher. \n` +
+    'Please update your version of Node.'
   );
   process.exit(1);
 }
@@ -132,11 +132,9 @@ spawn.sync('git', ['init'], { cwd: projectDir, stdio: 'inherit' });
 console.log(chalk.blueBright('Installing dependencies. This might take a while.'));
 spawn.sync(packager, ['install'], { cwd: projectDir, stdio: 'inherit' });
 
-spawn.sync('npx', ['husky', 'add', '.husky/pre-commit', 'npx lint-staged'], { cwd: projectDir, stdio: 'inherit' });
-spawn.sync('npx', ['husky', 'add', '.husky/commit-msg', 'npx commitlint --edit $1'], {
-  cwd: projectDir,
-  stdio: 'inherit',
-});
+spawn.sync('npx', ['husky', 'init'], { cwd: projectDir, stdio: 'inherit' });
+spawn.sync('echo "npx lint-staged" > .husky/pre-commit', { cwd: projectDir, stdio: 'inherit', shell: true });
+spawn.sync('echo "npx commitlint --edit $1" > .husky/commit-msg', { cwd: projectDir, stdio: 'inherit', shell: true });
 
 console.log();
 console.log(chalk.greenBright('Success! 🎉'));
@@ -144,6 +142,6 @@ console.log();
 console.log(chalk.greenBright('Your new DECAF app is ready.'));
 console.log(chalk.green(`Created ${chalk.greenBright(projectNameHuman)} at ${chalk.gray(projectDir)}`));
 console.log();
-console.log(chalk.greenBright(`$ cd ${folderName} && ${packager} start`));
+console.log(chalk.greenBright(`$ cd ${folderName} && ${packager} run dev`));
 console.log();
 console.log(chalk.dim(`Done in ${(Date.now() - _timer) / 1000} seconds.`));
