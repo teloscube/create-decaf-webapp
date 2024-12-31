@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.7.0](https://github.com/teloscube/create-decaf-webapp/compare/0.6.2...0.7.0) (2024-12-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* now minimum engine version is 22
+
+### Features
+
+* upgrade decaf library versions ([e2eee52](https://github.com/teloscube/create-decaf-webapp/commit/e2eee528e1919e8e92826cedc4baea1ea5210461))
+
+
+### Miscellaneous Chores
+
+* upgrade dependencies ([e2eee52](https://github.com/teloscube/create-decaf-webapp/commit/e2eee528e1919e8e92826cedc4baea1ea5210461))
+
 ## [0.6.2](https://github.com/teloscube/create-decaf-webapp/compare/0.6.1...0.6.2) (2024-09-18)
 
 
