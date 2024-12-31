@@ -2,14 +2,20 @@
 
 // Usage: npx create-decaf-webapp my-app
 
-const chalk = require('chalk');
-const spawn = require('cross-spawn');
-const fs = require('fs');
-const path = require('path');
-const replace = require('replace-in-file');
-const validate = require('validate-npm-package-name');
-const { Command } = require('commander');
+import chalk from 'chalk';
+import { Command } from 'commander';
+import spawn from 'cross-spawn';
+import fs from 'node:fs';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { replaceInFileSync } from 'replace-in-file';
+import validate from 'validate-npm-package-name';
+const require = createRequire(import.meta.url);
 const { version } = require('./package.json');
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function humanize(str) {
   return str
@@ -117,7 +123,7 @@ fs.cpSync(path.join(projectDir, '.env'), path.join(projectDir, '.env.example'));
 
 const mFiles = FILES_TO_MODIFY.map((f) => path.resolve(currentDir, folderName, f));
 
-replace.sync({
+replaceInFileSync({
   files: mFiles,
   from: [/--projectname--/g, /--appname--/g, /--username--/g, /--usermail--/g],
   to: [projectName, projectNameHuman, username, usermail],

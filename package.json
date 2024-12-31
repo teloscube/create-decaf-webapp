@@ -2,6 +2,7 @@
   "name": "create-decaf-webapp",
   "version": "0.6.2",
   "author": "teloscube",
+  "type": "module",
   "license": "SEE LICENSE IN LICENSE",
   "keywords": [
     "decaf"
@@ -21,11 +22,11 @@
     "create-decaf-app": "./index.js"
   },
   "dependencies": {
-    "chalk": "^4",
-    "commander": "^12.1.0",
-    "cross-spawn": "^7.0.3",
-    "replace-in-file": "^7",
-    "validate-npm-package-name": "^5.0.1"
+    "chalk": "^5.4.1",
+    "commander": "^13.0.0",
+    "cross-spawn": "^7.0.6",
+    "replace-in-file": "^8.3.0",
+    "validate-npm-package-name": "^6.0.0"
   },
   "prettier": {
     "tabWidth": 2,
@@ -39,7 +40,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^3.3.3",
-    "prettier-plugin-organize-imports": "^4.0.0"
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0"
   }
 }
