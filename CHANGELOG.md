@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.8.0](https://github.com/teloscube/create-decaf-webapp/compare/0.7.0...0.8.0) (2025-04-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **template:** upgrade the minimum Node version to 22
+
+### Miscellaneous Chores
+
+* **template:** upgrade dependencies ([cf62051](https://github.com/teloscube/create-decaf-webapp/commit/cf6205192857f35a8ec7a691255dd0af43e074d6))
+
 ## [0.7.0](https://github.com/teloscube/create-decaf-webapp/compare/0.6.2...0.7.0) (2024-12-31)
 
 
