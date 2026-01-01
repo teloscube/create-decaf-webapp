@@ -5,7 +5,7 @@
   "author": "--username-- <--usermail-->",
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "scripts": {
     "dev": "vite",
