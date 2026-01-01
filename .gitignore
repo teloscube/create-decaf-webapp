@@ -16,3 +16,5 @@ template/yarn.lock
 template/package-lock.json
 template/build
 template/src/autogen
+
+/.direnv

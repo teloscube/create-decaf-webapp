@@ -78,7 +78,7 @@ const FILES_TO_MODIFY = [
   'package.json',
   'public/manifest.json',
   'README.md',
-  'shell.nix',
+  'flake.nix',
   'src/App.tsx',
 ];
 
